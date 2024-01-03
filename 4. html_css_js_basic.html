@@ -35,6 +35,12 @@
     <script>
         document.getElementById("load1").innerHTML = "change1";
         // Head 부분이 먼저 실행되는데 그 시점에는 load1이 없기 때문에 변경이 일어나지 않을 것.
+        function updateDemo1(){
+            document.getElementById("demo1").innerHTML = "변경된 p태그 내용"
+        }
+
+
+
     </script>
 </head>
 <body>
@@ -79,8 +85,14 @@
         document.getElementById("load2").innerHTML = "change2";
     </script>
 
-    <p>변경될 p태그 내용</p>
-    <button onclick="updateDemo2()">내용변경</button>
+    <p id="demo1">변경될 p태그 내용</p>
+    <button onclick="updateDemo1()">내용변경</button> <!-- script 부분에 정의되어 있음. -->
+
+    <p id="demo2">demo2 내용</p>
+    <button onclick="updateDemo2()">내용변경</button> 
+
+    <script src="./js/my_js.js"></script>
+
 
 </body>
 </html>
