@@ -15,7 +15,7 @@
             processUserInput((name) => alert("안녕하세요 " + name + "님"));
         }
 
-        // function callBackExample3(){ // callBackExample3 함수 합치기 전
+        // function callBackExample3(){ // callBackExample3 화살표 함수로 표현하는것과 똑같다.
         //     processUserInput(myCallback2);
         // }
         // function myCallback2(name){
@@ -26,12 +26,29 @@
             let name = prompt("이름을 입력해주세요");
             callback(name);
         }
+
+        function callBackExample4(){
+            const numbers = [1,2,3,4,5];
+            numbers.forEach(a => console.log(a)) // forEach가 함수문을 받아서 처리해줌 // 동기적이다(순차적으로 실행)
+            console.log("hello world")
+        }
+        function callBackExample5(){
+            // setTimeOut함수는 대표적인 js의 비동기함수(콜백함수를 처리할 수 있는 함수)
+            // 그 외에 네트워크 작업을 수행하는 많은 함수가 비동기함수로 설계
+            setTimeout(()=>console.log("hello world 1", 2000)); // 단일 스레드 인데 어떻게 비동기적으로 실행되는지.
+            console.log("hello world2");
+            setTimeout(()=>console.log("hello world 3", 2000));
+            console.log("hello world4");
+        }
+
     </script>
 </head>
 <body>
     <h2>콜백함수</h2>
-    <button onclick="callBackExample1()">콜백 예제1</button>
-    <button onclick="callBackExample2()">콜백 예제2</button>
-    <button onclick="callBackExample3()">콜백 예제3</button>
+    <button onclick="callBackExample1()">일반함수 예제1</button>
+    <button onclick="callBackExample2()">콜백함수 예제2</button>
+    <button onclick="callBackExample3()">콜백함수 예제3</button>
+    <button onclick="callBackExample4()">콜백함수 예제4</button>
+    <button onclick="callBackExample5()">콜백함수 예제5</button>
 </body>
 </html>
