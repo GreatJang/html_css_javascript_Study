@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js callback</title>
+    <script>// 다른함수 안에서 실행가능한 함수
+        function callBackExample1(callback){ // 콜백함수 없음 // 일반함수
+            alert("hello");
+        }
+        function callBackExample2(){
+            processUserInput((name) => console.log("안녕하세요 " + name + "님")); // callback함수 전형적인 패턴
+        }
+        function callBackExample3(){
+            processUserInput((name) => alert("안녕하세요 " + name + "님"));
+        }
+
+        // function callBackExample3(){ // callBackExample3 함수 합치기 전
+        //     processUserInput(myCallback2);
+        // }
+        // function myCallback2(name){
+        //     alert("안녕하세요 " + name + "님");
+        // }
+
+        function processUserInput(callback){
+            let name = prompt("이름을 입력해주세요");
+            callback(name);
+        }
+    </script>
+</head>
+<body>
+    <h2>콜백함수</h2>
+    <button onclick="callBackExample1()">콜백 예제1</button>
+    <button onclick="callBackExample2()">콜백 예제2</button>
+    <button onclick="callBackExample3()">콜백 예제3</button>
+</body>
+</html>
